@@ -1,3 +1,5 @@
+package app;
+
 class Konstants { 
   public static String premUser = "jIl-&iam-prem-h-ppson"; 
   public static String groundUser = "jIl-&iam-ground-h-ggson"; 

@@ -1,9 +1,22 @@
- 
+package app;
+
  abstract class Errand{
   private String unique, title, description, createdAt, creatorID, expiryDate;
-  private String status = 
+  private String status = Konstants.ERRAND_LIVE; 
+  private int bounty = 0;
   private ErrandInstructions rules; 
-  public Errand(String unique, String title, String description, String createdAt, String creatorID, String expiryDate, ErrandInstructions rules){
+  /**
+   * 
+   * @param unique
+   * @param title
+   * @param description
+   * @param createdAt
+   * @param creatorID
+   * @param expiryDate
+   * @param bounty
+   * @param rules
+   */
+  public Errand(String unique, String title, String description, String createdAt, String creatorID, String expiryDate, int bounty, ErrandInstructions rules){
     this.unique = unique; 
     this.title = title; 
     this.description = description; 
@@ -11,6 +24,7 @@
     this.creatorID  = creatorID; 
     this.expiryDate = expiryDate; 
     this.rules = rules;
+    this.bounty = bounty;
   }
 
   public String getUnique() {
@@ -67,6 +81,22 @@
 
   public void setRules(ErrandInstructions rules) {
     this.rules = rules;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public int getBounty() {
+    return bounty;
+  }
+
+  public void setBounty(int bounty) {
+    this.bounty = bounty;
   }
 
 

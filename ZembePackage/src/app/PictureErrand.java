@@ -1,11 +1,26 @@
+package app;
+
+
 import java.util.ArrayList;
 
 class PictureErrand extends Errand {
   private ArrayList<String> imageArray;
 
+  /**
+   * 
+   * @param unique
+   * @param title
+   * @param description
+   * @param createdAt
+   * @param creatorID
+   * @param expiryDate
+   * @param bounty
+   * @param rules
+   * @param imageArray
+   */
   public PictureErrand(String unique, String title, String description, String createdAt, String creatorID,
-      String expiryDate,ErrandInstructions rules, ArrayList<String> imageArray) {
-    super(unique, title, description, createdAt, creatorID, expiryDate,rules);
+      String expiryDate,int bounty, ErrandInstructions rules, ArrayList<String> imageArray) {
+    super(unique, title, description, createdAt, creatorID, expiryDate,bounty,rules);
     this.imageArray = imageArray;
   }
 

@@ -1,6 +1,17 @@
+package app;
 
  abstract class ZembeUser {
   private String firstName, secondName, email,unique, phoneNumber,momoNumber, geoLocation; 
+  /**
+   * 
+   * @param firstName
+   * @param secondName
+   * @param email
+   * @param unique
+   * @param phoneNumber
+   * @param momo
+   * @param location
+   */
   public ZembeUser(String firstName, String secondName, String email, String unique, String phoneNumber, String momo, String location){
     this.firstName  = firstName; 
     this.secondName = secondName; 
