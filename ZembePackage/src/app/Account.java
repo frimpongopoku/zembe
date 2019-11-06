@@ -1,8 +1,8 @@
 package app;
 
+class Account extends ZembeUser implements CanRunErrand, CanCreateErrand {
+  private String accountType;
 
-class Account extends ZembeUser implements CanRunErrand,CanCreateErrand{
-  private String accountType ;
   /**
    * 
    * @param firstName
@@ -13,8 +13,10 @@ class Account extends ZembeUser implements CanRunErrand,CanCreateErrand{
    * @param momo
    * @param location
    * @param accountType
+   * 
    */
-  public Account(String firstName, String secondName, String email, String unique, String phoneNumber, String momo, String location,String accountType){
+  public Account(String firstName, String secondName, String email, String unique, String phoneNumber, String momo,
+      String location, String accountType) {
     super(firstName, secondName, email, unique, phoneNumber, momo, location);
     this.accountType = accountType;
   }
@@ -35,27 +37,35 @@ class Account extends ZembeUser implements CanRunErrand,CanCreateErrand{
 
   @Override
   public Errand forfeitErrand(Errand errand) {
+    // return errand with a null runner ID
+    // and reset the errand mode
+    errand.setRunner(null);
+    errand.setStatus(Konstants.ERRAND_LIVE);
+    return errand;
+  }
+
+  @Override
+  public Errand createErrand(String unique, String title, String description, int bounty, String longDescription,
+      ErrandInstructions instructions, Account runner) {
+    Errand mErrand = new TextErrand(unique, title, description, this.getUnique(), "22nd may", bounty, instructions,
+        longDescription, runner);
+    return mErrand;
+  }
+
+  @Override
+  public Boolean deleteErrand(Errand errand) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public Errand createErrand() {
+  public Boolean deleteErrand(String unique) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public Boolean deleteErrand() {
-    // TODO Auto-generated method stub
-    return null;
+  public void editErrand() {
   }
 
-  @Override
-  public Errand editErrand(Account creator, Errand errand) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  
 }

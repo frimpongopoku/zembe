@@ -11,16 +11,15 @@ class PictureErrand extends Errand {
    * @param unique
    * @param title
    * @param description
-   * @param createdAt
    * @param creatorID
    * @param expiryDate
    * @param bounty
    * @param rules
    * @param imageArray
    */
-  public PictureErrand(String unique, String title, String description, String createdAt, String creatorID,
-      String expiryDate,int bounty, ErrandInstructions rules, ArrayList<String> imageArray) {
-    super(unique, title, description, createdAt, creatorID, expiryDate,bounty,rules);
+  public PictureErrand(String unique, String title, String description,  String creatorID,
+      String expiryDate,int bounty, ErrandInstructions rules, ArrayList<String> imageArray,Account runner) {
+    super(unique, title, description, creatorID, expiryDate,bounty,rules,runner);
     this.imageArray = imageArray;
   }
 

@@ -1,10 +1,14 @@
 package app;
 
- abstract class Errand{
-  private String unique, title, description, createdAt, creatorID, expiryDate;
+import java.util.Date;
+
+abstract class Errand{
+  private String unique, title, description,creatorID, expiryDate;
   private String status = Konstants.ERRAND_LIVE; 
   private int bounty = 0;
+  private String createdAt = String.valueOf(new Date());
   private ErrandInstructions rules; 
+  private Account runner;
   /**
    * 
    * @param unique
@@ -15,16 +19,17 @@ package app;
    * @param expiryDate
    * @param bounty
    * @param rules
+   * @param runner
    */
-  public Errand(String unique, String title, String description, String createdAt, String creatorID, String expiryDate, int bounty, ErrandInstructions rules){
+  public Errand(String unique, String title, String description, String creatorID, String expiryDate, int bounty, ErrandInstructions rules, Account runner){
     this.unique = unique; 
     this.title = title; 
     this.description = description; 
-    this.createdAt = createdAt; 
     this.creatorID  = creatorID; 
     this.expiryDate = expiryDate; 
     this.rules = rules;
-    this.bounty = bounty;
+    this.bounty = bounty; 
+    this.runner = runner;
   }
 
   public String getUnique() {
@@ -97,6 +102,14 @@ package app;
 
   public void setBounty(int bounty) {
     this.bounty = bounty;
+  }
+
+  public Account getRunner() {
+    return runner;
+  }
+
+  public void setRunner(Account runner) {
+    this.runner = runner;
   }
 
 

@@ -1,13 +1,9 @@
 package app;
 interface CanCreateErrand{
   
-  abstract Errand createErrand(); 
-  abstract Boolean deleteErrand(); 
-  /**
-   * 
-   * @param creator
-   * @param errand
-   */
-  abstract Errand editErrand(Account creator, Errand errand);
+  abstract Errand createErrand(String unique, String title, String description,int bounty,String longDescription,ErrandInstructions instructions,Account runner); 
+  abstract Boolean deleteErrand(Errand errand); 
+  abstract Boolean deleteErrand(String errand); 
+  abstract void editErrand();
 
 }
